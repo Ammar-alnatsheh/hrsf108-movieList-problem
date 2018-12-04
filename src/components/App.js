@@ -12,8 +12,24 @@ class App extends React.Component {
     }
   }
 
-  onSearchClick(text) {
-    console.log(text);
+  onSearchClick(word) {
+    var result = [];
+    word = word.toLowerCase();
+
+    exampleMovieData.forEach(function(movie){
+      if (movie.title.toLowerCase().includes(word)) {
+        result.push(movie);
+      }
+    });
+
+    if(result.length !== 0) {
+      this.setState({
+        movies: result
+      });
+
+    } else {
+      alert('No movie by that name found');
+    }
 
   }
 
