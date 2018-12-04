@@ -1,9 +1,15 @@
 body {
     padding: 50px;
-  
+
 }
 
 #root {
     display: flex;
     justify-content: flex;
+
+}
+
+.div {
+    border: 2px solid gray;
+
 }
