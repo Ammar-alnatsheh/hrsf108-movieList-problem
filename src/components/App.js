@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from '../components/MovieList.js';
 import Search from './Search.js';
+import AddMovie from './AddMovie.js';
 import exampleMovieData from '../data/exampleMovieData.js';
 
 class App extends React.Component {
@@ -30,7 +31,22 @@ class App extends React.Component {
     } else {
       alert('No movie by that name found');
     }
+  }
 
+  onAddClick(word) {
+    var result = this.state.movies;
+    var movie = {};
+    word = word.trim();
+    if(word !== '') {
+      movie['title'] = word;
+      result.push(movie)
+      this.setState({
+        movies: result
+      });
+
+    } else {
+      alert('Invalid movie name, cant be empty space');
+    }
   }
 
   render() {
@@ -38,6 +54,9 @@ class App extends React.Component {
       <div>
         <div className = "header">
           <h3>Movie List</h3>
+        </div>
+        <div className="add-bar">
+          <AddMovie addClick={this.onAddClick.bind(this)}/>
         </div>
         <div className="search-bar">
           <Search searchClick={this.onSearchClick.bind(this)}/>
