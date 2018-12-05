@@ -9,7 +9,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movies : exampleMovieData
+      movies : exampleMovieData,
+      watched: true
     }
   }
 
@@ -25,7 +26,8 @@ class App extends React.Component {
 
     if(result.length !== 0) {
       this.setState({
-        movies: result
+        movies: result,
+        watched: this.state.watched
       });
 
     } else {
@@ -41,12 +43,20 @@ class App extends React.Component {
       movie['title'] = word;
       result.push(movie)
       this.setState({
-        movies: result
+        movies: result,
+        watched: this.state.watched
       });
 
     } else {
       alert('Invalid movie name, cant be empty space');
     }
+  }
+
+  onSwitchTab(event) {
+    this.setState({
+      movies: this.state.movies,
+      watched: event.target.value
+    });
   }
 
   render() {
@@ -58,8 +68,15 @@ class App extends React.Component {
         <div className="add-bar">
           <AddMovie addClick={this.onAddClick.bind(this)}/>
         </div>
-        <div className="search-bar">
-          <Search searchClick={this.onSearchClick.bind(this)}/>
+        <div>
+          <div className="tab-panel">
+            <button className="watched-tab" value="true" onClick={this.onSwitchTab.bind(this)}>Watched</button>
+            <button className="to-watch-tabs" value="false" onClick={this.onSwitchTab.bind(this)}>To Watch</button>
+            <span></span>
+          </div>
+          <div className="search-bar">
+            <Search searchClick={this.onSearchClick.bind(this)}/>
+          </div>
         </div>
         <div className="app-body">
           <MovieList movies={this.state.movies}/>
