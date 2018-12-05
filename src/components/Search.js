@@ -21,7 +21,7 @@ class Search extends React.Component {
       return (
         <div className="search-bar">
           <form onSubmit={this.handleInputChange.bind(this)}>
-            <input ref={(v) => this._inputValue = v}></input>
+            <input placeholder="Search" ref={(v) => this._inputValue = v}></input>
             <button type="submit">Go!</button>
           </form>
         </div>

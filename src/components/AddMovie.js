@@ -22,7 +22,8 @@ class AddMovie extends React.Component {
         <div className="AddMovie-bar">
           <form onSubmit={this.handleInputChange.bind(this)}>
             <input placeholder="Add movie title here" ref={(v) => this._inputValue = v}></input>
-            <button type="submit">Add</button>
+            <span className="AddMovie-bar-spacer"></span>
+            <button calssName="Add-button" type="submit">Add</button>
           </form>
         </div>
       );
