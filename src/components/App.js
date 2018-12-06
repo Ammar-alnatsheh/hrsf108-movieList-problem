@@ -41,6 +41,7 @@ class App extends React.Component {
     word = word.trim();
     if(word !== '') {
       movie['title'] = word;
+      movie['watched'] = false;
       result.push(movie)
       this.setState({
         movies: result,
@@ -55,7 +56,7 @@ class App extends React.Component {
   onSwitchTab(event) {
     this.setState({
       movies: this.state.movies,
-      watched: event.target.value
+      watched: event.target.value === 'true'
     });
   }
 
@@ -79,7 +80,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className="app-body">
-          <MovieList movies={this.state.movies}/>
+          <MovieList movies={this.state.movies} watched={this.state.watched}/>
         </div>
       </div>
     );

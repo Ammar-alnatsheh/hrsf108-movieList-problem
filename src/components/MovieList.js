@@ -4,7 +4,7 @@ import MovieListEntry from './MovieListEntry.js';
 var MovieList = (props) => (
   <div className="movie-list">
     {
-      props.movies.map(movie => (
+      props.movies.filter(movie => props.watched === movie.watched).map(movie => (
         <MovieListEntry movie={movie}/>
       ))
     }
