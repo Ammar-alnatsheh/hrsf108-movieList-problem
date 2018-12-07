@@ -62,24 +62,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className = "header">
+      <div className="app">
+        <div className="header">
           <h3>Movie List</h3>
         </div>
         <div className="add-bar">
           <AddMovie addClick={this.onAddClick.bind(this)}/>
         </div>
-        <div>
+        <br></br>
+        <div className="app-body">
           <div className="tab-panel">
             <button className="watched-tab" value="true" onClick={this.onSwitchTab.bind(this)}>Watched</button>
             <button className="to-watch-tabs" value="false" onClick={this.onSwitchTab.bind(this)}>To Watch</button>
-            <span></span>
           </div>
+          <span className="spacer"></span>
           <div className="search-bar">
             <Search searchClick={this.onSearchClick.bind(this)}/>
           </div>
         </div>
-        <div className="app-body">
+        <div className="movies">
+          <br></br>
           <MovieList movies={this.state.movies} watched={this.state.watched}/>
         </div>
       </div>

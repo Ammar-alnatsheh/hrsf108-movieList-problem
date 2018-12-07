@@ -1,4 +1,5 @@
 import React from 'react';
+import "./style/AddMovie.css";
 
 class AddMovie extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class AddMovie extends React.Component {
         <div className="AddMovie-bar">
           <form onSubmit={this.handleInputChange.bind(this)}>
             <input placeholder="Add movie title here" ref={(v) => this._inputValue = v}></input>
-            <span className="AddMovie-bar-spacer"></span>
+            <span className="spacer"></span>
             <button calssName="Add-button" type="submit">Add</button>
           </form>
         </div>
