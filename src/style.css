@@ -6,7 +6,7 @@ body {
     border: 4px solid #F2F3F4;
     border-style: outset;
     width: 30%;
-    
+
 }
 
 .header {
@@ -24,4 +24,14 @@ body {
 
 .movies {
     border: 1px solid lightgray;
+}
+
+.movie-entry {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.taggol {
+    float: right;
 }
