@@ -22,6 +22,7 @@ class Search extends React.Component {
         <div className="search-bar">
           <form onSubmit={this.handleInputChange.bind(this)}>
             <input placeholder="Search" ref={(v) => this._inputValue = v}></input>
+            <span class="tooltiptext">Search * for all Movies</span>
             <button type="submit">Go!</button>
           </form>
         </div>

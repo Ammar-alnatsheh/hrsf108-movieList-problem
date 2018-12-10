@@ -24,14 +24,20 @@ class App extends React.Component {
       }
     });
 
-    if(result.length !== 0) {
+    if(result.length !== 0 && word !== '*') {
       this.setState({
         movies: result,
         watched: this.state.watched
       });
 
+    } else if(word === '*') {
+      this.setState({
+        movies: exampleMovieData,
+        watched: this.state.watched
+      });
+
     } else {
-      alert('No movie by that name found');
+      alert('No movie by that name found/ search for * to display all movies');
     }
   }
 
@@ -42,7 +48,8 @@ class App extends React.Component {
     if(word !== '') {
       movie['title'] = word;
       movie['watched'] = false;
-      result.push(movie)
+      result.push(movie);
+      exampleMovieData.push(movie);
       this.setState({
         movies: result,
         watched: this.state.watched
