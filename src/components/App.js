@@ -47,9 +47,8 @@ class App extends React.Component {
     word = word.trim();
     if(word !== '') {
       movie['title'] = word;
-      movie['watched'] = false;
+      movie['watched'] = this.state.watched;
       result.push(movie);
-      exampleMovieData.push(movie);
       this.setState({
         movies: result,
         watched: this.state.watched
