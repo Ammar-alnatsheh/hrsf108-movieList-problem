@@ -5,7 +5,7 @@ var MovieList = (props) => (
   <div className="movie-list">
     {
       props.movies.filter(movie => props.watched === movie.watched).map(movie => (
-        <MovieListEntry movie={movie}/>
+        <MovieListEntry movie={movie} toggel={props.toggel}/>
       ))
     }
   </div>

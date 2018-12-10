@@ -67,6 +67,13 @@ class App extends React.Component {
     });
   }
 
+  onToggel() {
+    this.setState({
+      movies: this.state.movies,
+      watched: this.state.watched
+    });
+  }
+
   render() {
     return (
       <div className="app">
@@ -79,8 +86,8 @@ class App extends React.Component {
         <br></br>
         <div className="app-body">
           <div className="tab-panel">
-            <button className="watched-tab" value="true" onClick={this.onSwitchTab.bind(this)}>Watched</button>
-            <button className="to-watch-tabs" value="false" onClick={this.onSwitchTab.bind(this)}>To Watch</button>
+            <button className={this.state.watched?'green':''} value="true" onClick={this.onSwitchTab.bind(this)}>Watched</button>
+            <button className={this.state.watched?'':'green'} value="false" onClick={this.onSwitchTab.bind(this)}>To Watch</button>
           </div>
           <span className="spacer"></span>
           <div className="search-bar">
@@ -89,7 +96,7 @@ class App extends React.Component {
         </div>
         <div className="movies">
           <br></br>
-          <MovieList movies={this.state.movies} watched={this.state.watched}/>
+          <MovieList movies={this.state.movies} watched={this.state.watched} toggel={this.onToggel.bind(this)}/>
         </div>
       </div>
     );

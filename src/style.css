@@ -30,6 +30,9 @@ body {
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
+    padding-bottom: 10px;
+    border: 1px solid #F2F3F4;
+    align-content: center;
 }
 
 .taggol {
@@ -51,4 +54,8 @@ body {
   
   .search-bar:hover .tooltiptext {
     visibility: visible;
+  }
+
+  .green {
+      background-color: green;
   }

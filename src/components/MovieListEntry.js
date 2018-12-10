@@ -5,10 +5,11 @@ var MovieListEntry = (props) => (
     <div>
       {props.movie.title}
     </div>
-    <button className="taggol" onClick={e => {
-      e.view.ontoggle = true;
+    <button className="green" onClick={e => {
       props.movie.watched = !props.movie.watched;
-    }}> {props.movie.watched ? 'Watched' : 'To Watch'}
+      props.toggel();
+    }}> 
+    {props.movie.watched ? 'Watched' : 'To Watch'}
     </button>
     
   </div>
